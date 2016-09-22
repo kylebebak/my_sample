@@ -6,24 +6,24 @@ __No se recomienda su uso para fines ajenos a los descritos arriba__.
 
 
 ## Installation
-```sh
+~~~sh
 pip install my_sample
-```
+~~~
 
 ## Usage
-Instantiate a questionnaire and add a couple of questions.
-```py
+Instantiate a sample and do amazing shit.
+~~~py
 from my_sample import MySample
 s = MySample()
 print(s.name()) # amazing
-```
+~~~
 
 
 ## Tests
-```sh
+~~~sh
 # from the project root
 python -m unittest discover tests -v
-```
+~~~
 
 
 ## Contributing
@@ -36,15 +36,14 @@ This code is licensed under the [MIT License](https://opensource.org/licenses/MI
 
 ## How To
 
-El mejor tutorial acerca de PyPI que he encontrado [está aquí](http://peterdowns.com/posts/first-time-with-pypi.html).
+El mejor tutorial acerca de PyPI que he encontrado [está aquí](http://peterdowns.com/posts/first-time-with-pypi.html), este tutorial reproduce partes de su contenido.
 
-Hay más información [aquí](https://packaging.python.org/en/latest/distributing/).
-
+La información oficial [está aquí](https://packaging.python.org/en/latest/distributing/).
 
 First, create accounts with <https://pypi.python.org/> and <https://testpypi.python.org/pypi>. Then create your `~.pypirc` file.
 
 `~/.pypirc`
-```
+~~~
 [distutils]
 index-servers =
   pypi
@@ -59,30 +58,29 @@ password=<password>
 repository=https://testpypi.python.org/pypi
 username=<username>
 password=<password>
-```
+~~~
 
 
 Tag your release and upload it to GitHub.
-```sh
+~~~sh
 # add a tag to a package so that package can be submitted to PyPI
 git tag <version> -m "Adds a versioning tag so that we can submit this to PyPI."
 
 git push --tags origin master
 # file is now available for download here
 # https://github.com/<user>/<repo>/tarball/<tag>
-```
+~~~
 
 Submit your package to __pypitest__ first. Check that it works, then submit it to __pypi__.
-```sh
+~~~sh
 # submit to pypi test server
-python setup.py register -r pypitest
-python setup.py sdist upload -r pypitest
+python setup.py register -r pypitest # register your package with PyPI
+python setup.py sdist upload -r pypitest # push a new version to PyPI
 pip install -i https://testpypi.python.org/pypi <package>
 
 # submit to pypi
 python setup.py register -r pypi
 python setup.py sdist upload -r pypi
 pip install <package>
-
-```
+~~~
 
